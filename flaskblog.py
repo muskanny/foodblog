@@ -33,7 +33,7 @@ def home():
 
 	else :
 		print("hello")
-		return render_template('home.html', posts=posts)
+		return render_template('index.html', posts=posts)
 	'''<!doctype html>
 	<html>
 	'''
