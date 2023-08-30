@@ -169,5 +169,7 @@ def sentiment_analyser(link):
         return int(torch.argmax(result.logits))+1
     df['sentiment']=df['review'].apply(lambda x: sentiment_score(x[:512]))
     
+    return df
+
 
 

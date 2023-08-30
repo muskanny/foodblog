@@ -21,9 +21,14 @@ posts=[{'name':'muskan singh', 'title':'blog post 1','content':'first post conte
 @app.route("/", methods = ['GET', 'POST'])
 def home():
 	if (request.method == 'POST') :
-		print("hey")
 		link = request.form.get('link')
-		sentiment_analyser(link)
+		# print(link)
+		df1 = sentiment_analyser(link)
+
+		
+
+		return render_template("out.html", df = df1.to_html())
+		# return render_template('home.html', posts=posts)
 
 	#posts=[{'name':'muskan singh', 'title':'blog post 1','content':'first post content','date_posted':'April 20,2018'},
 	#{'name':'srishti chugh', 'title':'blog post 2','content':'second post content','date_posted':'April 22,2018'},
@@ -32,11 +37,10 @@ def home():
 	#{'name':'shruti tripathi', 'title':'blog post 5','content':'fifth post content','date_posted':'April 20,2018'}]
 
 	else :
-		print("hello")
 		return render_template('home.html', posts=posts)
-	'''<!doctype html>
-	<html>
-	'''
+	
+
+	
 #def hello():
 #	return "<h1>home page</h1>"
 
